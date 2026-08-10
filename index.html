@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avatar Journey</title>
+  <meta name="description" content="Ein Avatar reist täglich durch eine neue Stadt und zeigt seine Lieblingsprodukte." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <!-- Pflicht: Werbekennzeichnung -->
+  <div class="ad-banner" role="note">
+    <strong>Werbung / Anzeige.</strong> Diese Seite enthält Amazon-Partnerlinks. Als Amazon-Partner
+    verdiene ich an qualifizierten Verkäufen. Für dich entstehen dabei keine Mehrkosten.
+  </div>
+
+  <header class="site-header">
+    <div class="brand">
+      <h1 id="brand-name">Avatar Journey</h1>
+      <p id="brand-tagline" class="tagline">Ein Avatar. Jeden Tag eine neue Stadt.</p>
+    </div>
+  </header>
+
+  <main id="app">
+    <!-- Avatar + heutige Stadt -->
+    <section class="hero">
+      <div class="hero-media">
+        <span id="day-badge" class="day-badge">Tag 1</span>
+        <div id="avatar-media" class="avatar-media"></div>
+      </div>
+      <div class="hero-info">
+        <p class="eyebrow">Heute unterwegs in</p>
+        <h2 id="city-name" class="city-name">Berlin</h2>
+        <p id="city-meta" class="city-meta"></p>
+        <p id="day-caption" class="day-caption"></p>
+      </div>
+    </section>
+
+    <!-- Produkte des Tages -->
+    <section class="products">
+      <h2 class="section-title">Die Lieblingsstücke von heute</h2>
+      <p class="section-sub">Tipp auf ein Produkt, um es dir auf Amazon anzusehen.</p>
+      <div id="products-grid" class="products-grid"></div>
+    </section>
+
+    <!-- Reise-Timeline -->
+    <section class="timeline">
+      <h2 class="section-title">Die Reise bisher</h2>
+      <ul id="timeline-list" class="timeline-list"></ul>
+    </section>
+  </main>
+
+  <div id="tag-warning" class="tag-warning" hidden>
+    ⚠️ Hinweis für den Betreiber: In <code>data/journey.json</code> ist noch der Platzhalter-Partner-Tag
+    <code>DEIN-TAG-21</code> eingetragen. Ersetze ihn durch deinen echten Amazon-Partner-Tag.
+  </div>
+
+  <footer class="site-footer">
+    <nav class="footer-nav">
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutz</a>
+      <a href="#">Über die Reise</a>
+    </nav>
+    <p class="footer-legal">
+      Als Amazon-Partner verdiene ich an qualifizierten Verkäufen. Amazon und das Amazon-Logo sind
+      Marken von Amazon.com, Inc. oder eines seiner verbundenen Unternehmen.
+    </p>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

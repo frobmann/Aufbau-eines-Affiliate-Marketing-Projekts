@@ -1,0 +1,39 @@
+{
+  "config": {
+    "brandName": "Avatar Journey",
+    "tagline": "Ein Avatar. Jeden Tag eine neue Stadt. Jeden Tag neue Lieblingsprodukte.",
+    "affiliateTag": "DEIN-TAG-21",
+    "amazonDomain": "amazon.de",
+    "startCity": "Berlin"
+  },
+  "days": [
+    {
+      "day": 1,
+      "date": "2026-08-10",
+      "city": "Berlin",
+      "country": "Deutschland",
+      "landmark": "Brandenburger Tor",
+      "avatarMedia": "assets/avatars/tag-01-berlin.mp4",
+      "avatarPoster": "assets/avatars/tag-01-berlin.jpg",
+      "caption": "Tag 1 — Der Start der Reise in Berlin. Zwischen Brandenburger Tor und Spree zeigt der Avatar heute die ersten Lieblingsstücke.",
+      "products": [
+        {
+          "name": "Elegante Umhängetasche (Beispiel)",
+          "image": "assets/products/handtasche.jpg",
+          "price": "49,99 €",
+          "note": "Perfekt für den Städtetrip.",
+          "asin": "B00EXAMPLE1",
+          "url": ""
+        },
+        {
+          "name": "Thermo-Kaffeebecher To-Go (Beispiel)",
+          "image": "assets/products/kaffeebecher.jpg",
+          "price": "19,99 €",
+          "note": "Hält den Coffee auf dem Weg warm.",
+          "asin": "B00EXAMPLE2",
+          "url": ""
+        }
+      ]
+    }
+  ]
+}
