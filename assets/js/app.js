@@ -103,6 +103,13 @@ function productCard(product, config) {
   const price = document.createElement("span");
   price.className = "product-price";
   price.textContent = product.price || "";
+  if (product.price && product.priceAsOf) {
+    price.title = `Preis-Stand: ${product.priceAsOf}`;
+    const asOf = document.createElement("small");
+    asOf.className = "price-asof";
+    asOf.textContent = `Stand ${product.priceAsOf}`;
+    price.appendChild(asOf);
+  }
 
   const cta = document.createElement("a");
   cta.className = "product-cta";
