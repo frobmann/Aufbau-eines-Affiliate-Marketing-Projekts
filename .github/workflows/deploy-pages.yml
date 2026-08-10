@@ -1,0 +1,48 @@
+name: Deploy to GitHub Pages
+
+# Veroeffentlicht die statische Seite automatisch bei jedem Push auf den
+# Entwicklungs-Branch. Manuell ausloesbar ueber "Run workflow".
+on:
+  push:
+    branches:
+      - claude/affiliate-avatar-marketing-tool-goihoo
+      - main
+  workflow_dispatch:
+
+# Rechte, die GitHub Pages fuer das Deployment braucht.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Immer nur ein Deployment gleichzeitig.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          # Aktiviert GitHub Pages (Quelle: GitHub Actions) automatisch,
+          # falls noch nicht eingeschaltet.
+          enablement: true
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Gesamtes Repo hochladen (statische Seite liegt im Wurzelverzeichnis).
+          path: "."
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
