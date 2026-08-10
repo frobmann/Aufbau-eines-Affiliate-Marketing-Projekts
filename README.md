@@ -86,17 +86,44 @@ Fertiges Video (`.mp4`) nach `assets/avatars/` legen, Produktfotos nach `assets/
 ```
 .
 ├── index.html              # Die Web-App (Startseite)
+├── admin.html              # Reise-Editor (Produkte/Tage ohne JSON-Handarbeit)
+├── impressum.html          # Impressum (Vorlage – Platzhalter ausfüllen)
+├── datenschutz.html        # Datenschutzerklärung (Vorlage)
 ├── data/journey.json       # ➜ Hier pflegst du täglich Stadt + Produkte ein
+├── scripts/
+│   └── fetch-products.js   # Holt Preise/Bilder per Amazon PA-API
+├── .env.example            # Vorlage für PA-API-Schlüssel (nach .env kopieren)
+├── package.json            # npm-Scripts: start, fetch
 ├── assets/
 │   ├── css/styles.css      # Design
 │   ├── js/app.js           # Logik (lädt journey.json, baut Partnerlinks)
+│   ├── js/admin.js         # Editor-Logik
 │   ├── avatars/            # Deine Avatar-Videos/-Bilder pro Tag
 │   └── products/           # Deine Produktfotos
 └── docs/
     ├── tooling.md          # KI-Tool-Empfehlungen & Workflow
     ├── amazon-partnerprogramm.md   # Anmeldung + rechtssichere Umsetzung
+    ├── paapi-setup.md      # Automatische Preise/Bilder einrichten
     └── roadmap.md          # Projektfahrplan (alle Ausbaustufen)
 ```
+
+## 🛠️ Produkte bequem pflegen (Admin-Editor)
+
+Statt `journey.json` von Hand zu bearbeiten, kannst du `admin.html` öffnen (über den lokalen
+Server, siehe Schnellstart). Dort legst du Tage und Produkte per Formular an, siehst eine
+Live-Vorschau und lädst die fertige `journey.json` herunter → in den Ordner `data/` legen.
+
+## 💶 Preise & Bilder automatisch (Amazon PA-API)
+
+Mit einem aktiven Partner-Account kannst du Preise, Titel und Produktbilder automatisch von
+Amazon holen:
+
+```bash
+cp .env.example .env      # Schlüssel eintragen
+npm run fetch             # data/journey.json wird angereichert
+```
+
+Details: [`docs/paapi-setup.md`](docs/paapi-setup.md).
 
 ---
 

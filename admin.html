@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avatar Journey — Admin</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .admin-main { max-width: 960px; margin: 0 auto; padding: 20px; }
+    .admin-head { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; margin: 16px 0 24px; }
+    .admin-head h1 { margin: 0; font-size: 1.6rem; }
+    .admin-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn { font: inherit; cursor: pointer; border-radius: 10px; padding: 9px 16px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text); font-size: 0.9rem; }
+    .btn:hover { border-color: var(--accent); }
+    .btn-primary { background: var(--accent); color: #1a1204; border-color: var(--accent); font-weight: 600; }
+    .btn-danger { color: #ff9a9a; }
+    .btn-sm { padding: 5px 10px; font-size: 0.8rem; }
+    .panel { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 22px; }
+    .panel > h2 { margin: 0 0 14px; font-size: 1.1rem; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 620px){ .grid2 { grid-template-columns: 1fr; } }
+    label.field { display: flex; flex-direction: column; gap: 4px; font-size: 0.82rem; color: var(--text-dim); }
+    label.field input, label.field textarea {
+      font: inherit; font-size: 0.9rem; color: var(--text); background: var(--bg); border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px 10px; width: 100%;
+    }
+    label.field input:focus, label.field textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+    label.field textarea { min-height: 58px; resize: vertical; }
+    .day-card { border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 16px; background: var(--bg-card); }
+    .day-card > .day-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+    .day-title { font-weight: 700; }
+    .products-head { display: flex; align-items: center; justify-content: space-between; margin: 14px 0 8px; }
+    .products-head h4 { margin: 0; font-size: 0.9rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; }
+    .product-row { border: 1px dashed var(--border); border-radius: 10px; padding: 12px; margin-bottom: 10px; }
+    .product-row .row-top { display:flex; justify-content: flex-end; margin-bottom: 6px; }
+    .hint { color: var(--text-dim); font-size: 0.85rem; margin: 0 0 14px; }
+    pre.json { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px; overflow-x: auto; font-size: 0.82rem; color: var(--text); max-height: 340px; }
+    .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #1a1204; padding: 10px 18px; border-radius: 10px; font-weight: 600; opacity: 0; transition: opacity .2s; pointer-events: none; }
+    .toast.show { opacity: 1; }
+  </style>
+</head>
+<body>
+  <div class="ad-banner" role="note"><strong>Admin-Bereich.</strong> Nur zum Bearbeiten — lokal ausführen. Änderungen als <code>data/journey.json</code> exportieren.</div>
+
+  <main class="admin-main">
+    <div class="admin-head">
+      <h1>🛠️ Reise-Editor</h1>
+      <div class="admin-actions">
+        <button class="btn" id="btn-reload">Neu laden</button>
+        <button class="btn" id="btn-copy">JSON kopieren</button>
+        <button class="btn btn-primary" id="btn-download">journey.json herunterladen</button>
+      </div>
+    </div>
+
+    <p class="hint">Bearbeite Konfiguration, Reisetage und Produkte. Lade am Ende <code>journey.json</code>
+      herunter und lege sie in den Ordner <code>data/</code>. Preise/Bilder kannst du auch automatisch
+      per <code>npm run fetch</code> (PA-API) befüllen.</p>
+
+    <section class="panel" id="config-panel">
+      <h2>Konfiguration</h2>
+      <div class="grid2" id="config-fields"></div>
+    </section>
+
+    <section class="panel">
+      <div class="products-head" style="margin-top:0">
+        <h2 style="margin:0">Reisetage</h2>
+        <button class="btn btn-sm" data-action="add-day">+ Tag hinzufügen</button>
+      </div>
+      <div id="days-container"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Vorschau (journey.json)</h2>
+      <pre class="json" id="json-preview"></pre>
+    </section>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

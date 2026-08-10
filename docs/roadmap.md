@@ -16,11 +16,11 @@ Vom heutigen MVP bis zur skalierten Affiliate-Maschine. Jede Stufe ist eigenstä
 - [ ] Erste 7 Reisetage (Berlin → weitere Städte) vorproduzieren.
 - [ ] Veröffentlichung über GitHub Pages.
 
-## 🔜 Stufe 2 — Automatisierung der Produktpflege
-- [ ] Anbindung der **Amazon Product Advertising API (PA-API 5.0)** für korrekte
-      Preise, Bilder und Verfügbarkeit (statt manueller Eingabe).
-- [ ] Kleines Admin-Formular statt JSON-Handpflege.
-- [ ] Bild-Upload-Helfer für Produktfotos.
+## ✅ Stufe 2 — Automatisierung der Produktpflege (umgesetzt)
+- [x] Anbindung der **Amazon Product Advertising API (PA-API 5.0)** für korrekte
+      Preise, Bilder und Verfügbarkeit — `scripts/fetch-products.js` (`npm run fetch`).
+- [x] **Admin-Editor** (`admin.html`) statt JSON-Handpflege.
+- [ ] Bild-Upload-Helfer für Produktfotos (offen).
 
 ## 🔜 Stufe 3 — Reichweite & Tracking
 - [ ] Klick-Tracking (welche Produkte werden geklickt?) — z. B. Plausible/Umami
