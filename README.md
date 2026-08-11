@@ -102,6 +102,7 @@ Fertiges Video (`.mp4`) nach `assets/avatars/` legen, Produktfotos nach `assets/
 │   └── products/           # Deine Produktfotos
 └── docs/
     ├── tooling.md          # KI-Tool-Empfehlungen & Workflow
+    ├── prompts.md          # Fertige Copy-&-Paste-Prompts für den Avatar
     ├── amazon-partnerprogramm.md   # Anmeldung + rechtssichere Umsetzung
     ├── paapi-setup.md      # Automatische Preise/Bilder einrichten
     └── roadmap.md          # Projektfahrplan (alle Ausbaustufen)
